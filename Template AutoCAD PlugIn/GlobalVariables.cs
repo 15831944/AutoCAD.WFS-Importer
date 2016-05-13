@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace LinzDataGrabber
 {
     public class GlobalVariables
-    {      
+    {
+        public static string LinzParcelApiKey = "";
     }
 }

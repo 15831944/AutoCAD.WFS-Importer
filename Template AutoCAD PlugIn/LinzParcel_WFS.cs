@@ -17,7 +17,7 @@ namespace LinzDataGrabber
             }
                 return instance;
         }
-        string apiKey = "b96d858dc1f543bab7926bc3197f75f7";
+        public static string apiKey = "b96d858dc1f543bab7926bc3197f75f7";
         public override string ApiKey
         {
             get

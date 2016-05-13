@@ -37,13 +37,13 @@
             this.size_TxtBx = new System.Windows.Forms.TextBox();
             this.getData_Btn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.layerListCmboBx = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.getApiLink = new System.Windows.Forms.Label();
+            this.apiKeyTxtBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.apiKeyTxtBox = new System.Windows.Forms.TextBox();
-            this.getApiLink = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -134,15 +134,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parameters";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 144);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Layer:";
-            // 
             // layerListCmboBx
             // 
             this.layerListCmboBx.FormattingEnabled = true;
@@ -152,6 +143,15 @@
             this.layerListCmboBx.Name = "layerListCmboBx";
             this.layerListCmboBx.Size = new System.Drawing.Size(275, 21);
             this.layerListCmboBx.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 144);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Layer:";
             // 
             // groupBox2
             // 
@@ -163,6 +163,28 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Api Key";
+            // 
+            // getApiLink
+            // 
+            this.getApiLink.AutoSize = true;
+            this.getApiLink.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.getApiLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.getApiLink.Location = new System.Drawing.Point(158, 49);
+            this.getApiLink.Name = "getApiLink";
+            this.getApiLink.Size = new System.Drawing.Size(76, 13);
+            this.getApiLink.TabIndex = 0;
+            this.getApiLink.Text = "Get API Key";
+            this.getApiLink.Click += new System.EventHandler(this.getApiLink_Click);
+            // 
+            // apiKeyTxtBox
+            // 
+            this.apiKeyTxtBox.Font = new System.Drawing.Font("Proxy 1", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apiKeyTxtBox.ForeColor = System.Drawing.Color.Red;
+            this.apiKeyTxtBox.Location = new System.Drawing.Point(15, 19);
+            this.apiKeyTxtBox.Name = "apiKeyTxtBox";
+            this.apiKeyTxtBox.Size = new System.Drawing.Size(397, 21);
+            this.apiKeyTxtBox.TabIndex = 1;
+            this.apiKeyTxtBox.Text = "b96d858dc1f543bab7926bc3197f75f7";
             // 
             // groupBox3
             // 
@@ -184,29 +206,6 @@
     " by LINZ for re-use under the Creative Commons Attribution 3.0 New Zealand licen" +
     "ce.";
             // 
-            // apiKeyTxtBox
-            // 
-            this.apiKeyTxtBox.Font = new System.Drawing.Font("Proxy 1", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.apiKeyTxtBox.ForeColor = System.Drawing.Color.Red;
-            this.apiKeyTxtBox.Location = new System.Drawing.Point(15, 19);
-            this.apiKeyTxtBox.Name = "apiKeyTxtBox";
-            this.apiKeyTxtBox.Size = new System.Drawing.Size(397, 21);
-            this.apiKeyTxtBox.TabIndex = 1;
-            this.apiKeyTxtBox.Text = "b96d858dc1f543bab7926bc3197f75f7";
-            this.apiKeyTxtBox.Leave += new System.EventHandler(this.address_TxtBx_Leave);
-            // 
-            // getApiLink
-            // 
-            this.getApiLink.AutoSize = true;
-            this.getApiLink.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.getApiLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.getApiLink.Location = new System.Drawing.Point(158, 49);
-            this.getApiLink.Name = "getApiLink";
-            this.getApiLink.Size = new System.Drawing.Size(76, 13);
-            this.getApiLink.TabIndex = 0;
-            this.getApiLink.Text = "Get API Key";
-            this.getApiLink.Click += new System.EventHandler(this.getApiLink_Click);
-            // 
             // MainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,6 +217,7 @@
             this.Controls.Add(this.getData_Btn);
             this.Name = "MainUI";
             this.Text = "GetLinzData";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainUI_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

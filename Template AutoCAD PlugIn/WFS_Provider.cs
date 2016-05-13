@@ -10,7 +10,7 @@ namespace LinzDataGrabber
 {
     public class WFS_Provider
     {
-        static readonly string apiKey = "b96d858dc1f543bab7926bc3197f75f7";
+        static public string apiKey = GlobalVariables.LinzParcelApiKey;
         public virtual string ApiKey
         {
             get { return apiKey; }
@@ -52,7 +52,7 @@ namespace LinzDataGrabber
         public virtual List<double> BoundingBoxPoints(double lat, double lng, double size)
         {
             List<double> boxpoints = new List<double>();
-            size = size * 0.00001; //Converts size to 'WGS84 meters'
+            size = (size/2) * 0.00001; //Converts size to 'WGS84 meters'
             double x1 = lat - size;
             double y1 = lng - size;
             double x2 = lat + size;
