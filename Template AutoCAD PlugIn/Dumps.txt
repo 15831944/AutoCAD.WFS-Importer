@@ -1,0 +1,54 @@
+﻿        private XmlWfsData GetParcelData(XElement element)
+        {
+            string id = "";
+            string appellation = "";
+            string affectedSurvey = "";
+            string postString = "";
+            List<string> positionlist = new List<string>();
+            XNamespace datagovt = "http://data.linz.govt.nz";
+            XNamespace gml = "http://www.opengis.net/gml/3.2";
+            try
+            {
+                XElement layerData = element.Element(datagovt + "layer-772");
+                id = layerData.Element(datagovt + "id").Value;
+                appellation = layerData.Element(datagovt + "appellation").Value;
+                affectedSurvey = layerData.Element(datagovt + "affected_surveys").Value;
+                postString = layerData.Element(datagovt + "shape")
+                                                .Element(gml + "MultiSurface").Element(gml + "surfaceMember").Element(gml + "Polygon")
+                                                .Element(gml + "exterior").Element(gml + "LinearRing").Element(gml + "posList").Value;
+                positionlist = postString.Split(' ').ToList();
+            }
+            catch
+            {
+
+            }
+            XmlWfsData data = new XmlWfsData(id, appellation, affectedSurvey, positionlist);
+            return data;
+        }
+
+        private void GetLinzParcelXml(string url)
+        {
+            WebRequest request;
+            WebResponse response;
+            XDocument xdoc;
+            XmlWfsData parcel;
+            try
+            {
+                request = WebRequest.Create(url);
+                response = request.GetResponse();
+                xdoc = XDocument.Load(response.GetResponseStream());
+                XNamespace wfs = "http://www.opengis.net/wfs/2.0";
+                foreach (XElement element in xdoc.Descendants(wfs + "member"))
+                {
+                    parcel = GetParcelData(element);
+                    AutoCAD_Methods.DrawPlineFromList(parcel.PosList);
+                   
+                }
+
+                MessageBox.Show("DONE");
+            }
+                catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e.Message);
+            }
+        }
