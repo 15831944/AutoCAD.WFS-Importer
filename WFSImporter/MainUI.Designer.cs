@@ -1,4 +1,4 @@
-﻿namespace LinzDataGrabber
+﻿namespace WFSImporter
 {
     partial class MainUI
     {
@@ -185,6 +185,7 @@
             this.apiKeyTxtBox.Size = new System.Drawing.Size(397, 21);
             this.apiKeyTxtBox.TabIndex = 1;
             this.apiKeyTxtBox.Text = "b96d858dc1f543bab7926bc3197f75f7";
+            this.apiKeyTxtBox.TextChanged += new System.EventHandler(this.apiKeyTxtBox_TextChanged);
             // 
             // groupBox3
             // 

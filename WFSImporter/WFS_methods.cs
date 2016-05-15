@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace LinzDataGrabber
+namespace WFSImporter
 {
     /// <summary>
     /// Parcel Data Holder

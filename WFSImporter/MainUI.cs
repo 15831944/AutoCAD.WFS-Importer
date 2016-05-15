@@ -12,15 +12,14 @@ using System.Xml;
 using System.Xml.Linq;
 
 
-namespace LinzDataGrabber
+namespace WFSImporter
 {
     public partial class MainUI : Form
     {
-        ProgressBar progressBar;
         public MainUI()
         {
             InitializeComponent();
-            GlobalVariables.LinzParcelApiKey = LinzDataGrabber.Properties.Settings.Default.userLinzApiKey;
+            GlobalVariables.LinzParcelApiKey = WFSImporter.Properties.Settings.Default.userLinzApiKey;
             apiKeyTxtBox.Text = GlobalVariables.LinzParcelApiKey;
             layerListCmboBx.SelectedIndex = 0;
         }         
@@ -60,7 +59,7 @@ namespace LinzDataGrabber
                 lngD = double.Parse(lng);
                 sizeD = double.Parse(size_TxtBx.Text);
                 LinzParcel_WFS linzParcel = new LinzParcel_WFS();
-                linzParcel.DrawXmlData("layer-772", latD, lngD, sizeD);
+                linzParcel.DrawXmlData(latD, lngD, sizeD);
                 MessageBox.Show("Completed");
                 AutoCAD_Methods.ZoomExtents();
             }
@@ -78,8 +77,13 @@ namespace LinzDataGrabber
 
         private void MainUI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            LinzDataGrabber.Properties.Settings.Default.userLinzApiKey = apiKeyTxtBox.Text;
-            LinzDataGrabber.Properties.Settings.Default.Save();
+            WFSImporter.Properties.Settings.Default.userLinzApiKey = apiKeyTxtBox.Text;
+            WFSImporter.Properties.Settings.Default.Save();
+        }
+
+        private void apiKeyTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            WFSImporter.Properties.Settings.Default.userLinzApiKey = apiKeyTxtBox.Text;
         }
     }
 }

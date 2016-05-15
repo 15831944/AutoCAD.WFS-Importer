@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LinzDataGrabber
+namespace WFSImporter
 {
     public partial class ProgressBar : Form
     {

@@ -10,8 +10,8 @@
     <ProjectGuid>{38A0EF3B-0219-48BF-BBBD-2ECF4DCA74AE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LinzDataGrabber</RootNamespace>
-    <AssemblyName>LINZDataGrabber</AssemblyName>
+    <RootNamespace>WFSImporter</RootNamespace>
+    <AssemblyName>WFSImporter</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -43,7 +43,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\Debug\LINZDataGrabber.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\WFSImporter.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -111,6 +111,7 @@
     <Compile Include="Geocoding.cs" />
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="LinzParcel_WFS.cs" />
+    <Compile Include="LinzTopo50.cs" />
     <Compile Include="MainUI.cs">
       <SubType>Form</SubType>
     </Compile>

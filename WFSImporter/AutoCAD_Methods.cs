@@ -9,7 +9,7 @@ using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.Colors;
 
-namespace LinzDataGrabber
+namespace WFSImporter
 {
     class AutoCAD_Methods
     {

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace LinzDataGrabber
+namespace WFSImporter
 {
     public class WFS_Provider
     {
@@ -109,6 +109,7 @@ namespace LinzDataGrabber
                 request = WebRequest.Create(url);
                 response = request.GetResponse();
                 xdoc = XDocument.Load(response.GetResponseStream());
+                System.Diagnostics.Process.Start(url);
             }
             catch (Exception e)
             {

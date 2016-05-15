@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LinzDataGrabber {
+namespace WFSImporter {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace LinzDataGrabber {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LinzDataGrabber.LinzDataCommands", typeof(LinzDataCommands).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WFSImporter.LinzDataCommands", typeof(LinzDataCommands).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

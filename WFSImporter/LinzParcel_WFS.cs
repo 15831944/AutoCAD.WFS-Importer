@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinzDataGrabber
+namespace WFSImporter
 {
     class LinzParcel_WFS : WFS_Provider
     {

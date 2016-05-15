@@ -1,4 +1,4 @@
-﻿namespace LinzDataGrabber
+﻿namespace WFSImporter
 {
     partial class ProgressBar
     {

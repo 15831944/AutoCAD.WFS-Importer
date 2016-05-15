@@ -8,9 +8,9 @@ using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.EditorInput;
 
 // This line is not mandatory, but improves loading performances
-[assembly: CommandClass(typeof(LinzDataGrabber.MyCommands))]
+[assembly: CommandClass(typeof(WFSImporter.MyCommands))]
 
-namespace LinzDataGrabber
+namespace WFSImporter
 {
 
     // This class is instantiated by AutoCAD for each document when
