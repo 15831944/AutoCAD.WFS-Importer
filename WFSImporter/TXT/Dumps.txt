@@ -1,4 +1,7 @@
-﻿        private XmlWfsData GetParcelData(XElement element)
+﻿        //codes I dont want to throw away but already been replaced/updated
+		
+		
+		private XmlWfsData GetParcelData(XElement element)
         {
             string id = "";
             string appellation = "";
