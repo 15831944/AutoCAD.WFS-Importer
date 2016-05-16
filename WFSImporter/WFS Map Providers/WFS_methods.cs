@@ -13,15 +13,17 @@ namespace WFSImporter
     /// </summary>
     public class XmlWfsData
     {
-        public string Id { get; set; }
-        public string Appellation { get; set; }
-        public string AffectedSurveys { get; set; }
+        public string string1 { get; set; }
+        public string string2 { get; set; }
+        public string string3 { get; set; }
+        public string string4 { get; set; }
         public List<string> PosList { get; set; }
-        public XmlWfsData(string id, string appell, string survey, List<string> poslist )
+        public XmlWfsData(string a, string b, string c, string d, List<string> poslist )
         {
-            Id = id;
-            Appellation = appell;
-            AffectedSurveys = survey;
+            string1 = a;
+            string2 = b;
+            string3 = c;
+            string4 = d;
             PosList = poslist;
         }
     }

@@ -30,8 +30,8 @@ namespace WFSImporter
         // context menu.
 
         // Modal Command with localized name
-        [CommandMethod("LINZDATA", CommandFlags.Modal)]
-        public void LinzData()
+        [CommandMethod("NETMAPS", CommandFlags.Modal)]
+        public void NetMaps()
         {
             Document doc = Application.DocumentManager.MdiActiveDocument;
             Editor ed;

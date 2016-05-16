@@ -10,7 +10,7 @@ namespace WFSImporter
 {
     public class WFS_Provider
     {
-        static public string apiKey = GlobalVariables.LinzParcelApiKey;
+        static public string apiKey = "";
         public virtual string ApiKey
         {
             get { return apiKey; }
@@ -37,7 +37,7 @@ namespace WFSImporter
         public virtual string WfsRequestUrl(string layer, double lat, double lng, double size)
         {
             List<double> boxpoints = BoundingBoxPoints(lat, lng, size);
-            string key = apiKey;
+            string key = ApiKey;
             string syntax = string.Format("{0};key={1}/wfs?REQUEST=GetFeature&typeNames={2}&BBOX={3},{4},{5},{6}&{7}",
                                           serverUrl, key, layer, boxpoints[0], boxpoints[1], boxpoints[2], boxpoints[3], coordinateSystem);
             return syntax;
@@ -91,7 +91,7 @@ namespace WFSImporter
             catch
             {
             }
-            XmlWfsData data = new XmlWfsData(id, appellation, affectedSurvey, positionlist);
+            XmlWfsData data = new XmlWfsData(id, appellation, affectedSurvey, "", positionlist);
             return data;
         }
         /// <summary>
@@ -109,7 +109,6 @@ namespace WFSImporter
                 request = WebRequest.Create(url);
                 response = request.GetResponse();
                 xdoc = XDocument.Load(response.GetResponseStream());
-                System.Diagnostics.Process.Start(url);
             }
             catch (Exception e)
             {
@@ -123,8 +122,9 @@ namespace WFSImporter
         /// <param name="lat"></param>
         /// <param name="lng"></param>
         /// <param name="size"></param>
-        public virtual void DrawXmlData(string layer, double lat, double lng, double size)
+        public virtual void DrawXmlData(double lat, double lng, double size)
         {
+            string layer = "layer-772";
             XmlWfsData parcel;
             string url = WfsRequestUrl(layer, lat, lng, size);
             XDocument xmlData = GetXML(url);
@@ -132,7 +132,8 @@ namespace WFSImporter
             foreach (XElement element in xmlData.Descendants(wfs + "member"))
             {
                 parcel = GetParcelDataFromXml(element);
-                AutoCAD_Methods.DrawPlineFromList(parcel.PosList);
+                AutoCAD_Methods.DrawPlineFrom2PtList("LinzParcel", parcel.PosList);
+                AutoCAD_Methods.DrawLabelsInPoly(parcel.PosList, parcel.string1, parcel.string2);
             }
         }
     }

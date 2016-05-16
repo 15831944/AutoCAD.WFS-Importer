@@ -34,5 +34,17 @@ namespace WFSImporter.Properties {
                 this["userLinzApiKey"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("xxxxxxxxxxxxxxxxxxxxxxxxxxx")]
+        public string userChchApiKey {
+            get {
+                return ((string)(this["userChchApiKey"]));
+            }
+            set {
+                this["userChchApiKey"] = value;
+            }
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace WFSImporter
             catch
             {
             }
-            XmlWfsData data = new XmlWfsData(id, appellation, affectedSurvey, positionlist);
+            XmlWfsData data = new XmlWfsData(id, appellation, affectedSurvey,"", positionlist);
             return data;
         }
     }

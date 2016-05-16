@@ -19,8 +19,8 @@ namespace WFSImporter
         public MainUI()
         {
             InitializeComponent();
-            GlobalVariables.LinzParcelApiKey = WFSImporter.Properties.Settings.Default.userLinzApiKey;
-            apiKeyTxtBox.Text = GlobalVariables.LinzParcelApiKey;
+            apiKeyTxtBox.Text = WFSImporter.Properties.Settings.Default.userLinzApiKey;
+            chchApiKeyTxtBx.Text = WFSImporter.Properties.Settings.Default.userChchApiKey;
             layerListCmboBx.SelectedIndex = 0;
         }         
         private void address_TxtBx_Leave(object sender, EventArgs e)
@@ -58,8 +58,7 @@ namespace WFSImporter
                 latD = double.Parse(lat);
                 lngD = double.Parse(lng);
                 sizeD = double.Parse(size_TxtBx.Text);
-                LinzParcel_WFS linzParcel = new LinzParcel_WFS();
-                linzParcel.DrawXmlData(latD, lngD, sizeD);
+                LoadProvider(latD, lngD, sizeD);
                 MessageBox.Show("Completed");
                 AutoCAD_Methods.ZoomExtents();
             }
@@ -69,7 +68,35 @@ namespace WFSImporter
             }
         }
 
+        private void LoadProvider(double lat, double lng, double size)
+        {
+            if(layerListCmboBx.SelectedItem.ToString() == "Linz Parcel")
+            {
+                LinzParcel_WFS linzParcel = new LinzParcel_WFS();
+                linzParcel.DrawXmlData(lat, lng, size);
+            }
+            if (layerListCmboBx.SelectedItem.ToString() == "Canterburry Contours")
+            {
+                double latNztm = new double();
+                double LngNztm = new double();
+                NZGD2000_NZTM.geod_nztm(AngleConvertion.Deg2Rad(lat), AngleConvertion.Deg2Rad(lng), ref latNztm, ref LngNztm);
+                Cantebury_Maps.ChCh7671_WFS chch7671 = new Cantebury_Maps.ChCh7671_WFS();
+                chch7671.DrawXmlData(latNztm, LngNztm, size);
+                //Cantebury_Maps.ChCh7675_WFS chch7675 = new Cantebury_Maps.ChCh7675_WFS();
+                //chch7675.DrawXmlData(lat, lng, size);
+                Cantebury_Maps.ChCh7676_WFS chch7676 = new Cantebury_Maps.ChCh7676_WFS();
+                chch7676.DrawXmlData(latNztm, LngNztm, size);
+                Cantebury_Maps.ChCh7677_WFS chch7677 = new Cantebury_Maps.ChCh7677_WFS();
+                chch7677.DrawXmlData(latNztm, LngNztm, size);
+                Cantebury_Maps.ChCh7678_WFS chch7678 = new Cantebury_Maps.ChCh7678_WFS();
+                chch7678.DrawXmlData(latNztm, LngNztm, size);
+                Cantebury_Maps.ChCh7682_WFS chch7682 = new Cantebury_Maps.ChCh7682_WFS();
+                chch7682.DrawXmlData(latNztm, LngNztm, size);
+                Cantebury_Maps.ChCh8165_WFS chch8165 = new Cantebury_Maps.ChCh8165_WFS();
+                chch8165.DrawXmlData(latNztm, LngNztm, size);
+            }
 
+        }
         private void getApiLink_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(@"http://www.linz.govt.nz/data/linz-data-service/guides-and-documentation/creating-an-api-key");       
@@ -84,6 +111,16 @@ namespace WFSImporter
         private void apiKeyTxtBox_TextChanged(object sender, EventArgs e)
         {
             WFSImporter.Properties.Settings.Default.userLinzApiKey = apiKeyTxtBox.Text;
+        }
+
+        private void chchApiLabel_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"https://id.koordinates.com/register/?scope=user_id&state=eyJjc3JmdG9rZW4iOiIxcFJLMmtPQXhqQWJydHR5d2llRGhkQXRGMFJQYnVmTyIsIndhcmVob3VzZV9pZCI6NzQsIm5leHQiOiIvc2VhcmNoLz9xPWFwaSJ9%3A1b1rdk%3A9NbZAUbe7AGd1v34dj6lVowCTJs&redirect_uri=https%3A%2F%2Fdata.canterburymaps.govt.nz%2Flogin%2Foauth%2Fcallback%2F&response_type=code&client_id=ce0d6d9f08728a89d9092b1fe52921");
+        }
+
+        private void chchApiKeyTxtBx_TextChanged(object sender, EventArgs e)
+        {
+            WFSImporter.Properties.Settings.Default.userChchApiKey = chchApiKeyTxtBx.Text;
         }
     }
 }

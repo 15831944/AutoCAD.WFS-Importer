@@ -1,9 +1,12 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LinzDataGrabber.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WFSImporter.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="userLinzApiKey" Type="System.String" Scope="User">
       <Value Profile="(Default)">xxxxxxxxxxxxxxxxxxxxxxxx</Value>
+    </Setting>
+    <Setting Name="userChchApiKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">xxxxxxxxxxxxxxxxxxxxxxxxxxx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

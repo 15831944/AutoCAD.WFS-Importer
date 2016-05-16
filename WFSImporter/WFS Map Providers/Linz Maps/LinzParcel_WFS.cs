@@ -17,12 +17,12 @@ namespace WFSImporter
             }
                 return instance;
         }
-        public static string apiKey = "b96d858dc1f543bab7926bc3197f75f7";
+        public static string apiKey = WFSImporter.Properties.Settings.Default.userLinzApiKey;
         public override string ApiKey
         {
             get
             {
-                return base.ApiKey;
+                return apiKey;
             }
         }
         static readonly string serverUrl = "http://data.linz.govt.nz/services";

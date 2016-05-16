@@ -173,3 +173,45 @@
             }
         }
     }
+
+
+
+	        public static Tuple<double, double> GetCentroid(List<Tuple<double, double>> vertices)
+        {
+            double signedArea;
+            double latC, lngC;
+            double sum = 0;
+            for(int i = 0; i < vertices.Count - 1; i++)
+            {
+                int k = i + 1;
+                if (i == vertices.Count - 1)
+                {
+                    k = 0;
+                }
+                sum += ((vertices[i].Item1) * (vertices[k].Item2)) - ((vertices[k].Item1) * (vertices[i].Item2));
+            }
+            signedArea = sum * 0.5;
+            sum = 0;
+            for (int i = 0; i < vertices.Count - 1 ; i++)
+            {
+                int k = i+1;
+                if(i == vertices.Count - 1)
+                {
+                    k = 0;         
+                }
+                sum += (vertices[i].Item1 + vertices[k].Item1) * ((vertices[i].Item1 * vertices[k].Item2) - (vertices[k].Item1 * vertices[i].Item2));
+            }
+            latC = ((1 / (6 * signedArea)) * sum);
+            sum = 0;
+            for (int i = 0; i < vertices.Count; i++)
+            {
+                int k = i + 1;
+                if (i == vertices.Count - 1)
+                {
+                    k = 0;
+                }
+                sum += (vertices[i].Item2 + vertices[k].Item2) * ((vertices[i].Item1 * vertices[k].Item2) - (vertices[k].Item1 * vertices[i].Item2));
+            }
+            lngC = ((1 / (6 * signedArea)) * sum);
+            return Tuple.Create(latC, lngC);
+        }

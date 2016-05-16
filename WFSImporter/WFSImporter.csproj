@@ -108,23 +108,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoCAD_Methods.cs" />
+    <Compile Include="NZGD200_NZTM.cs" />
+    <Compile Include="WFS Map Providers\Cantebury Maps\CanterburryWFS.cs" />
     <Compile Include="Geocoding.cs" />
-    <Compile Include="GlobalVariables.cs" />
-    <Compile Include="LinzParcel_WFS.cs" />
-    <Compile Include="LinzTopo50.cs" />
+    <Compile Include="WFS Map Providers\Linz Maps\LinzParcel_WFS.cs" />
+    <Compile Include="WFS Map Providers\Linz Maps\LinzTopo50.cs" />
     <Compile Include="MainUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainUI.Designer.cs">
       <DependentUpon>MainUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="LinzDataCommands.Designer.cs">
+    <Compile Include="NetMaps.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LinzDataCommands.resx</DependentUpon>
+      <DependentUpon>NetMaps.resx</DependentUpon>
     </Compile>
     <Compile Include="myPlugin.cs" />
-    <Compile Include="LinzDataCommands.cs" />
+    <Compile Include="NetMaps.cs" />
     <Compile Include="ProgressBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,17 +144,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="WFS_methods.cs" />
-    <Compile Include="WFS_Provider.cs" />
+    <Compile Include="WFS Map Providers\WFS_methods.cs" />
+    <Compile Include="WFS Map Providers\WFS_Provider.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainUI.resx">
       <DependentUpon>MainUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LinzDataCommands.resx">
-      <DependentUpon>LinzDataCommands.cs</DependentUpon>
+    <EmbeddedResource Include="NetMaps.resx">
+      <DependentUpon>NetMaps.cs</DependentUpon>
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>LinzDataCommands.Designer.cs</LastGenOutput>
+      <LastGenOutput>NetMaps.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgressBar.resx">
       <DependentUpon>ProgressBar.cs</DependentUpon>
